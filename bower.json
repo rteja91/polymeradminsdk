@@ -1,0 +1,17 @@
+{
+  "name": "adminsdkpolymer",
+  "version": "0.0.1",
+  "authors": [
+    "Ravi G <rteja7228@gmail.com>"
+  ],
+  "description": "Admin SDK API testing",
+  "keywords": [
+    "Admin",
+    "SDK"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.5.5"
+  }
+}
