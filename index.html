@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>
+      Admin SDK APP
+    </title>
+     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+<!-- Roboto Font -->
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,500,900' rel='stylesheet' type='text/css'>
+<!-- CSS Spiner -->
+<link rel="stylesheet" href="http://css-spinners.com/css/spinner/plus.css" type="text/css">
+
+    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+    <script src="bower_components/webcomponentsjs/HTMLImports.js"></script>
+    <script src="bower_components/webcomponentsjs/ShadowDOM.js"></script>
+    <script src="bower_components/webcomponentsjs/CustomElements.js"></script>
+    <script src="bower_components/polymer/polymer.js"></script>
+     <!-- App styles -->
+    <link rel="stylesheet" href="css/main.css">
+     <link rel="import" href="bower_components/google-signin/google-signin.html">
+  </head>
+  
+  <body unresolved>
+    
+    <div class="plus"></div>
+<div id="one" class="page">
+<h1>Google Signin</h1>
+<google-signin class="google-button"
+labelSignin="Sign in with Google"
+clientId="143701796842-00iqas36nj00irdrcuek60djmv6mrtqe.apps.googleusercontent.com"
+scopes="https://www.googleapis.com/auth/admin.directory"></google-signin>
+</div>
+
+<div id="two" class="page">
+<h1>Success <span class="text-red">lost</span> leads?</h1>
+<input type="text" id="lost" placeholder='e.g. "leads-lost"'>
+</div>
+    
+   <script src="js/app.js"></script> 
+  </body>
+  
+  
+</html>
