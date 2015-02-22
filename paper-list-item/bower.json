@@ -1,0 +1,8 @@
+{
+  "name": "paper-list-item",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#>=0.3.0 <1.0.0",
+    "paper-ripple": "Polymer/paper-ripple#>=0.3.0 <1.0.0"
+  }
+}

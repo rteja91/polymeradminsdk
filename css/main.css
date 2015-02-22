@@ -81,7 +81,7 @@ margin: 0;
 on hash change */
 .page {
 position: relative;
-/*top: 5%;*/
+top: 5%;
 -webkit-transform: translateY(-2150%);
 transform: translateY(-2150%);
 text-align: center;

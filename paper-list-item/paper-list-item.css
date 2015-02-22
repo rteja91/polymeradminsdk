@@ -1,0 +1,66 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+:host {
+    display: block;
+    position: relative;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    font-family: RobotoDraft, 'Helvetica Neue', Helvetica, Arial;
+
+    padding: 16px;
+}
+
+::content > .first {
+    font-size: 16px;
+}
+
+::content > .second, ::content > .third {
+    font-size: 14px;
+}
+
+:host([lines="1"]) {
+    height: 48px;
+}
+
+:host([lines="1"][avatar]) {
+    padding: 20px 16px;
+    height: 56px;
+}
+
+:host([lines="1"]) ::content > .second, :host([lines="1"]) ::content > .third {
+    display: none;
+}
+
+:host([lines="2"]) {
+    height: 72px;
+}
+
+:host([lines="2"]) ::content > .second {
+    font-size: 14px;
+}
+
+    :host([lines="2"]) ::content > .third {
+        display: none !important;
+    }
+
+:host([lines="3"]) {
+    height: 88px;
+}
+
+#ripple {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+#icon {
+    margin-right: 8px;
+}
+
+    #icon[hidden] {
+        display: none;
+    }

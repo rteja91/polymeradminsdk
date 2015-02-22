@@ -1,0 +1,21 @@
+<link href="../bower_components/polymer/polymer.html" rel="import">
+<link href="../bower_components/paper-ripple/paper-ripple.html" rel="import">
+
+
+<polymer-element name="paper-list-item" center layout attributes="lines">
+    <template>
+        <link href="paper-list-item.css" rel="stylesheet">
+
+        <paper-ripple id="ripple"></paper-ripple>
+
+        <content select=".first"></content><br>
+        <content select=".second"></content><br>
+        <content select=".third"></content>
+    </template>
+
+    <script>
+        Polymer('paper-list-item', {
+
+        });
+    </script>
+</polymer-element>
