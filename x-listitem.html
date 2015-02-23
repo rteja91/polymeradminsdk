@@ -2,27 +2,35 @@
 <link rel="import" href="bower_components/paper-item/paper-item.html" />
       <polymer-element name="x-listitem">
       
-        
-      </style>
+      
+  <style>
+    
+      
+    paper-item.paperItemBord {
+      border: solid 5px gray;
+      border-color: gray;
+      border-bottom-color: gray;
+     
+    }
+  </style>
+  
     <template>
        <template repeat="{{person in people}}">
-         <core-toolbar>
-         <paper-item flex>
-         <span flex>{{person.name1}}</span>            
-       <span flex >{{person.name2}}</span>
+         <paper-item  class="paperItemBord"flex>
+         <span flex>{{person.firstname}}</span>            
+       <span flex >{{person.lastname}}</span>
        <span flex >{{person.emailid}}</span>
        <span flex >{{Actions}}</span>
-       </paper-item>      
-      </core-toolbar>
+       </paper-item> 
       </template>
        </template>
      
        <script>
          
          Polymer('x-listitem',{
-           people:[{name1: 'test1',name2: 'last1',emailid: 'test1@email.com'},
-             {name1: 'test2',name2: 'last2',emailid: 'test2@email.com'},
-             {name1: 'test3',name2: 'last3',emailid: 'test3@email.com'}],                    
+           people:[{firstname: 'John',lastname: 'Patrick',emailid: 'pat@company.com'},
+             {firstname: 'Dan',lastname: 'Chris',emailid: 'dan@company.com'},
+             {firstname: 'sam',lastname: 'Arnold',emailid: 'sam@company.com'}],                    
            // ready: function(){
              // this.people = [{name1: 'test1',name2: 'last1',emailid: 'test1@email.com'},
              // {name1: 'test2',name2: 'last2',emailid: 'test2@email.com'},
