@@ -36,11 +36,20 @@
     
    <paper-menu-button>
     <paper-icon-button icon="more-vert" noink></paper-icon-button>
-    <paper-dropdown class="dropdown" halign="right" valign="top" style="color:black;">
+    <paper-dropdown class="dropdown" halign="right" valign="top" style="color:black;border: solid 1px gray;">
         <core-menu class="menu">
-           <paper-item>Share</paper-item>                     
-            <paper-item>Settings</paper-item>            
-            <paper-item>Help</paper-item>
+        <style>
+				paper-item.paperDropDown {
+
+					border-bottom: solid 1px #03A9F4;
+					color: #03A9F4;
+					margin: 3px;
+					padding: 4px;
+				}
+			</style>
+           <paper-item class="paperDropDown">Share</paper-item>                     
+            <paper-item class="paperDropDown">Settings</paper-item>            
+            <paper-item class="paperDropDown">Help</paper-item>
             <paper-item><google-signin class="google-button"
 labelSignin="Sign in with Google"
 clientId="143701796842-00iqas36nj00irdrcuek60djmv6mrtqe.apps.googleusercontent.com"
@@ -51,7 +60,7 @@ scopes="https://www.googleapis.com/auth/admin.directory.device.mobile https://ww
 </paper-menu-button>
 
     </core-toolbar>
-    <div class="content" style="color: black;">
+    <div class="content" style="color: black;margin-top:64px">
      <div id="users" class="page">
        
          
