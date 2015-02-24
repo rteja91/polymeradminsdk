@@ -20,10 +20,21 @@
       <paper-icon-button id="draicon" icon="arrow-back" end></paper-icon-button>
     </core-toolbar>
     <core-menu>
-      <paper-item id="d-users">Users</paper-item>
-      <paper-item id="d-groups">Groups</paper-item>
-      <paper-item id="d-org-unit">Organization Unit</paper-item>
-       <paper-item id="d-devices">Devices</paper-item>
+      <paper-item class="menuItem" id="d-users" layout center>
+       <core-icon icon="social:person"></core-icon>
+     	 &nbsp;Users
+      </paper-item>
+      <paper-item class="menuItem" id="d-groups"> 
+       <core-icon icon="social:group"></core-icon>
+      &nbsp;Groups
+      </paper-item>
+      <paper-item class="menuItem" id="d-org-unit">
+       <core-icon icon="communication:business"></core-icon>
+      &nbsp;Organization Unit
+      </paper-item>
+       <paper-item class="menuItem" id="d-devices">
+       <core-icon icon="device:devices"></core-icon>
+       &nbsp;Devices</paper-item>
     </core-menu>
    </core-header-panel>
 
@@ -38,18 +49,16 @@
     <paper-icon-button icon="more-vert" noink></paper-icon-button>
     <paper-dropdown class="dropdown" halign="right" valign="top" style="color:black;border: solid 1px gray;">
         <core-menu class="menu">
-        <style>
-				paper-item.paperDropDown {
-
-					border-bottom: solid 1px #03A9F4;
-					color: #03A9F4;
-					margin: 3px;
-					padding: 4px;
-				}
-			</style>
-           <paper-item class="paperDropDown">Share</paper-item>                     
-            <paper-item class="paperDropDown">Settings</paper-item>            
-            <paper-item class="paperDropDown">Help</paper-item>
+        
+           <paper-item class="menuItem">
+           <core-icon icon="social:share"></core-icon>
+           &nbsp;Share</paper-item>                     
+            <paper-item class="menuItem">
+            <core-icon icon="settings"></core-icon>
+            &nbsp;Settings</paper-item>            
+            <paper-item class="menuItem">
+            <core-icon icon="help"></core-icon>
+            &nbsp;Help</paper-item>
             <paper-item><google-signin class="google-button"
 labelSignin="Sign in with Google"
 clientId="143701796842-00iqas36nj00irdrcuek60djmv6mrtqe.apps.googleusercontent.com"

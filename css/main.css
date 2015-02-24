@@ -107,13 +107,19 @@ core-header-panel {
   background: white;
 }
 
+.menuItem {
+  background: white;
 
+  border-bottom: solid 1px #B6B6B6;
+					
+					color: #0288D1;
+}
 core-toolbar {
   background-color: #03A9F4;
   color:white;
 }
 #navheader {
-  background-color: #56BA89;
+  background-color: #03A9F4;
 }
 .content {
   padding: 20px;
@@ -125,5 +131,5 @@ core-drawer-panel:not([narrow]) #navicon {
 }
 
 #left-menu{
-  background: #A9EDFF;
+  background: #FFFFFF;
 }
