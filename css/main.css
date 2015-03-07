@@ -140,3 +140,6 @@ paper-toast {
    color:#FFFFFF;
    background:#D32F2F
 }
+html /deep/ [autofocus] {
+      color: #03a9f4;
+    }

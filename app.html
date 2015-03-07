@@ -8,8 +8,18 @@
 <link rel="import" href="elements.html" />
 <link rel="stylesheet" href="css/main.css">
 <link rel="import" href="bower_components/paper-toast/paper-toast.html">
+<link rel="import" href="bower_components/paper-dialog/paper-dialog.html" >
+<link rel="import" href="bower_components/paper-button/paper-button.html">
+  <link rel="import" href="bower_components/paper-dialog/paper-action-dialog.html">
   <body fullbleed layout vertical unresolved>
     <paper-toast id="deleteToast" text="Deleting the User..."></paper-toast>
+    <paper-action-dialog id="deleteDialog" style="position: fixed;width:80%;top:10%;border-width:thin;border-style:solid;border-color:blue">
+      <p>Do you want to Delete?</p>
+
+      <paper-button affirmative autofocus>Skip</paper-button>
+      <paper-button affirmative onclick="document.querySelector('#deleteToast').show()" style="border-color:#D32F2F;border-width:thin;border-style:solid">Delete</paper-button>
+      
+    </paper-action-dialog>
     <div class="plus"></div>
     
     <core-drawer-panel id="drawerPanel" forceNarrow="true">
