@@ -133,3 +133,10 @@ core-drawer-panel:not([narrow]) #navicon {
 #left-menu{
   background: #FFFFFF;
 }
+paper-toast {
+  top:10px;
+  bottom:auto;
+  left: auto;
+   color:#FFFFFF;
+   background:#D32F2F
+}
