@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="css/main.css">
 <link rel="import" href="bower_components/paper-toast/paper-toast.html">
   <body fullbleed layout vertical unresolved>
+    
     <paper-toast id="deleteToast" text="Deleting the User..."></paper-toast>
     <div class="plus"></div>
     
@@ -20,23 +21,25 @@
       <span flex></span>
       <paper-icon-button id="draicon" icon="arrow-back" end></paper-icon-button>
     </core-toolbar>
-    <core-menu>
-      <paper-item class="menuItem" id="d-users" layout center>
+    
+    <core-menu  selected="{{page}}" valueattr="data-category" id="main-menu1">
+      <paper-item data-category="users" class="menuItem" id="d-users" layout center>
        <core-icon icon="social:person"></core-icon>
      	 &nbsp;Users
       </paper-item>
-      <paper-item class="menuItem" id="d-groups"> 
+      <paper-item data-category="groups" class="menuItem" id="d-groups"> 
        <core-icon icon="social:group"></core-icon>
       &nbsp;Groups
       </paper-item>
-      <paper-item class="menuItem" id="d-org-unit">
+      <paper-item data-category="org-unit" class="menuItem" id="d-org-unit">
        <core-icon icon="communication:business"></core-icon>
       &nbsp;Organization Unit
       </paper-item>
-       <paper-item class="menuItem" id="d-devices">
+       <paper-item data-category="udevices" class="menuItem" id="d-devices">
        <core-icon icon="device:devices"></core-icon>
        &nbsp;Devices</paper-item>
     </core-menu>
+    
    </core-header-panel>
 
   <core-header-panel main>
@@ -67,47 +70,43 @@ scopes="https://www.googleapis.com/auth/admin.directory.device.mobile https://ww
 </paper-item>
         </core-menu>
     </paper-dropdown>
-</paper-menu-button>
+ </paper-menu-button>
 
     </core-toolbar>
-    <div class="content" style="color: black;margin-top:64px">
-     <div id="users" class="page">
-       
-         
+    <div class="content" style="color: black;margin-top:64px" fit layout vertical>
       
+      <core-pages selected="{{page}}" valueattr="data-category" id="main-pages1">
+      <section data-category="users">
+      <div >
       <x-listitem> </x-listitem>
-
-   
-   
-          
      </div>
-     
-     <div id="groups" class="page">
+     </section>
+     <section data-category="groups">
+     <div >
        
        <h1> I am In groups</h1>
      </div>
-     <div id="org-unit" class="page">
+     </section>
+     <section data-category="org-unit">
+     <div  >
        
        <h1> I am in Org-unit</h1>
        
      </div>
-     <div id="udevices" class="page" >
-         <div  >
-              <!-- <h1> I am in Devices</h1> -->
-              <paper-tabs selected="{{selected}}" class="transparent-teal">
-                <paper-tab>Chrome Devices</paper-tab>
-                <paper-tab>Mobile Devices</paper-tab>                
-              </paper-tabs>
-
-              <core-pages selected="{{selected}}">
-                <div>Page 1</div>
-                <div>Page 2</div>
-                
-              </core-pages>
-              </div>
-     </div>
+    </section>
      
+     <section data-category="udevices">
+       <div   >
      
+              <h1> I am in Devices</h1>
+            
+     </div>    
+       
+     </section>
+      
+      </core-pages>
+      
+          
     </div>
   </core-header-panel>
 
@@ -116,23 +115,23 @@ scopes="https://www.googleapis.com/auth/admin.directory.device.mobile https://ww
   </body>
   <script type="text/javascript">
   
- var pages ={users: "users",
-groups: "groups",
-orgunit: "org-unit",
-devices: "udevices"};    
-
-
-    
+ // var pages ={users: "users",
+// groups: "groups",
+// orgunit: "org-unit",
+// devices: "udevices"};    
+// 
+// 
+//     
     document.addEventListener('polymer-ready', function() {
-     
-  
+//      
+//   
   var navicon = document.getElementById('navicon');
   var draicon = document.getElementById('draicon');
-  var drausers = document.getElementById('d-users');
-  var dragroups= document.getElementById('d-groups');
-  var draorgunit= document.getElementById('d-org-unit');
-  var dradevices= document.getElementById('d-devices');
-  var drawerPanel = document.getElementById('drawerPanel');
+   var drausers = document.getElementById('d-users');
+var dragroups= document.getElementById('d-groups');
+var draorgunit= document.getElementById('d-org-unit');
+var dradevices= document.getElementById('d-devices')
+   var drawerPanel = document.getElementById('drawerPanel');
   navicon.addEventListener('click', function() {
     drawerPanel.togglePanel();
   });
@@ -141,39 +140,37 @@ devices: "udevices"};
     drawerPanel.togglePanel();
   });
   
-   drausers.addEventListener('click',function(){
-    window.location.hash = pages.users;
-    drawerPanel.togglePanel();
-  });
- 
-  dragroups.addEventListener('click',function(){
-      window.location.hash = pages.groups;
-    drawerPanel.togglePanel();
-  });
-  draorgunit.addEventListener('click',function(){
-      window.location.hash = pages.orgunit;
-    drawerPanel.togglePanel();
-  });
-  dradevices.addEventListener('click',function(){
-      window.location.hash = pages.devices;
-    drawerPanel.togglePanel();
-  });
+  drausers.addEventListener('click',function(){
 
+drawerPanel.togglePanel();
+});
+dragroups.addEventListener('click',function(){
+
+drawerPanel.togglePanel();
+});
+draorgunit.addEventListener('click',function(){
+
+drawerPanel.togglePanel();
+});
+dradevices.addEventListener('click',function(){
+
+drawerPanel.togglePanel();
+});
   
 
 });
 
  
 
-document.querySelector('body').classList.add('active');
-   window.location.hash=pages.users;
+// document.querySelector('body').classList.add('active');
+   // window.location.hash=pages.users;
 
-// var tabs = document.querySelector('paper-tabs');
-// var pages = document.querySelector('core-pages');
+ var tabs = document.querySelector('#main-menu1');
+ var pages = document.querySelector('#main-pages1');
 // 
-// tabs.addEventListener('core-select',function(){
-  // pages.selected = tabs.selected;
-// });
+tabs.addEventListener('core-select',function(){
+  pages.selected = tabs.selected;
+});
 
   </script>
   
