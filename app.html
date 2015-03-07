@@ -90,8 +90,20 @@ scopes="https://www.googleapis.com/auth/admin.directory.device.mobile https://ww
        <h1> I am in Org-unit</h1>
        
      </div>
-     <div id="udevices" class="page">
-              <h1> I am in Devices</h1>
+     <div id="udevices" class="page" >
+         <div  >
+              <!-- <h1> I am in Devices</h1> -->
+              <paper-tabs selected="{{selected}}" class="transparent-teal">
+                <paper-tab>Chrome Devices</paper-tab>
+                <paper-tab>Mobile Devices</paper-tab>                
+              </paper-tabs>
+
+              <core-pages selected="{{selected}}">
+                <div>Page 1</div>
+                <div>Page 2</div>
+                
+              </core-pages>
+              </div>
      </div>
      
      
@@ -155,7 +167,12 @@ devices: "udevices"};
 document.querySelector('body').classList.add('active');
    window.location.hash=pages.users;
 
-
+// var tabs = document.querySelector('paper-tabs');
+// var pages = document.querySelector('core-pages');
+// 
+// tabs.addEventListener('core-select',function(){
+  // pages.selected = tabs.selected;
+// });
 
   </script>
   

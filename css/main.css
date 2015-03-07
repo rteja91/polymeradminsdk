@@ -81,18 +81,25 @@ margin: 0;
 on hash change */
 .page {
 position: relative;
-top: 5%;
+/*top: 5%;*/
 -webkit-transform: translateY(-2150%);
 transform: translateY(-2150%);
 text-align: center;
 -webkit-transition: all 1s cubic-bezier(0.680, -0.550, 0.265, 1.550);
 transition: all 1s cubic-bezier(0.680, -0.550, 0.265, 1.550);
 width: 100%;
+margin-left: 5%;
 }
 .page:target {
 -webkit-transform: translateY(-50%);
 transform: translateY(-50%);
 }
+/*#udevices .page:target {
+-webkit-transform: translateY(-620%);
+transform: translateY(-620%);
+}*/
+
+
 /* hide app when loading content */
 conversion-rate-app::shadow {
 -webkit-transition: opacity .4s ease-in-out;
@@ -133,3 +140,16 @@ core-drawer-panel:not([narrow]) #navicon {
 #left-menu{
   background: #FFFFFF;
 }
+ paper-tabs.transparent-teal {
+      background-color: transparent;
+      color: #00bcd4;
+      box-shadow: none;
+    }
+    
+    paper-tabs.transparent-teal::shadow #selectionBar {
+      background-color: #00bcd4;
+    }
+    
+    paper-tabs.transparent-teal paper-tab::shadow #ink {
+      color: #00bcd4;
+    }
