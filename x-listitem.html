@@ -1,5 +1,6 @@
 <link rel="import" href="bower_components/core-toolbar/core-toolbar.html" />
 <link rel="import" href="bower_components/paper-item/paper-item.html" />
+
 <polymer-element name="x-listitem">
 
 	<template>
@@ -20,7 +21,7 @@
 
 				<span flex >{{person.emailid}}</span>
 				<span flex >
-					 <core-icon icon="delete" style="color:#D32F2F"></core-icon>
+					 <core-icon icon="delete" style="color:#D32F2F" onclick="document.querySelector('#deleteToast').show()"></core-icon>
 				</span>
 
 			</paper-item>
@@ -63,5 +64,6 @@
 		})
 
 	</script>
+
 
 </polymer-element>
