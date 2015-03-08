@@ -138,15 +138,19 @@ core-drawer-panel:not([narrow]) #navicon {
 }
 
 #left-menu{
-  background: #FFFFFF
+  background: #FFFFFF;
 }
-  paper-toast {
-  top:10px;
+ paper-toast {
+ top:10px;
   bottom:auto;
   left: auto;
    color:#FFFFFF;
    background:#D32F2F
 }
+
+html /deep/ [autofocus] {
+      color: #03a9f4;
+    }
 
 paper-toggle-button.bluetooth::shadow [checked] .toggle-ink {
       color: #4285f4;
