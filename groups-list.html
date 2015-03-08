@@ -1,0 +1,71 @@
+<link rel="import" href="bower_components/core-selector/core-selector.html" />
+<link rel="import" href="paper-collapse.html" />
+<link rel="import" href="x-listitem.html"/>
+<polymer-element name="groups-list">
+
+<template >
+      <div style="padding: 100px;">
+        <!-- <select id="selectionType">
+          <option value="single">Single Selection</option>
+          <option value="multiple">Multiple Selection</option>
+        </select>
+        <br><br>
+        <core-selector selectedAttribute="opened" multi="{{$.selectionType.value === 'multiple' ? true : false}}">
+          <paper-collapse label="Cloud Storage" labelIcon="cloud">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </paper-collapse>
+          <paper-collapse label="Extensions" labelIcon="extension">
+            <ul>
+              <li>One</li>
+              <li>Two</li>
+              <li>Three</li>
+              <li>Four</li>
+            </ul>
+          </paper-collapse>
+          <paper-collapse label="Trends" labelIcon="trending-up">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </paper-collapse>
+          <paper-collapse label="No Label Icon">
+            <p>Add content here.</p>
+          </paper-collapse>
+        </core-selector> -->
+        
+       
+        <core-selector selectedAttribute="opened" multi="false">
+         <template repeat="{{items as item}}">
+        <paper-collapse label="{{item.artist}}" labelIcon="groups">
+           <x-listitem></x-listitem>
+          </paper-collapse>
+               </template>
+        </core-selector>
+    
+     
+        
+    
+   
+               
+      </div>
+    </template>
+    
+    <script> 
+          Polymer('groups-list', {
+
+   
+
+      items: [
+        { artist: 'TECH TEAM', album: 'Tech Leads', color: '#f4db33' },
+        { artist: 'TESTING TEAM', album: 'TESTING LEADS', color: '#972ff8' },
+        { artist: 'Advisors Team ', album: 'Advisors', color: '#7dd6fe' },
+        { artist: 'HR Executive', album: 'HR ', color: '#dc3c84' },
+        { artist: 'TRavel Team', album: 'Travel Desk', color: '#f4db33' }
+        
+      ],
+
+  
+
+      
+    });
+      
+      </script>
+
+</polymer-element>

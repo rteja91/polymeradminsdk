@@ -147,3 +147,36 @@ core-drawer-panel:not([narrow]) #navicon {
    color:#FFFFFF;
    background:#D32F2F
 }
+
+paper-toggle-button.bluetooth::shadow [checked] .toggle-ink {
+      color: #4285f4;
+    }
+
+    paper-toggle-button.bluetooth::shadow [checked] .toggle {
+      background-color: #4285f4;
+    }
+    
+    paper-toggle-button.fun::shadow .toggle-ink {
+      color: #009688;
+    }
+
+    paper-toggle-button.fun::shadow .toggle-bar {
+      background-color: #5677fc;
+    }
+
+    paper-toggle-button.fun::shadow .toggle-button {
+      background-color: #9c27b0;
+    }
+    
+.fancyCard {
+width: 250px;
+}
+.fancyCard::shadow .content {
+background-color: #03A9F4;
+color: #FFF;
+padding: 10px;
+}
+.fancyCard::shadow h2 {
+font-family: 'Playfair Display SC', serif;
+font-weight: 200;
+}

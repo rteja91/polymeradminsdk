@@ -1,0 +1,109 @@
+<link rel="import" href="bower_components/paper-shadow/paper-shadow.html">
+<polymer-element name="material-card" attributes="autoraise" on-mouseover="{{mouseFocus}}" on-mouseout="{{mouseFocus}}">
+<template>
+<style>
+:host {
+display: block;
+padding: 20px;
+}
+</style>
+<paper-shadow id="shadow" animated=true>
+<paper-ripple></paper-ripple>
+<div class="content">
+<content></content>
+</content>
+</paper-shadow>
+</template>
+<script>
+Polymer("material-card",{
+z_mouseout: 1,
+z_mouseover: 5,
+handleDetailsTap: function(){
+console.log("Details Tapped");
+this.selecedHero=this.myHero;
+},
+mouseFocus: function(a,b,c){
+/* Called for on-mouseover as well as on-mouseout - switch on event.type to raise or lower
+card
+*/
+if(this.autoraise==="true") {
+switch (a.type) {
+case 'mouseover':
+this.$.shadow.setZ(this.z_mouseover);
+break;
+case 'mouseout':
+this.$.shadow.setZ(this.z_mouseout);
+break;
+}
+}
+}
+});
+</script>
+</polymer-element>
+
+<polymer-element name="org-units">
+<template>
+  <style>
+    .fancyCard {
+width: 250px;
+}
+.fancyCard::shadow .content {
+background-color: #03A9F4;
+color: #FFF;
+padding: 10px;
+}
+.fancyCard::shadow h2 {
+font-family: 'Playfair Display SC', serif;
+font-weight: 200;
+}
+
+.chip {
+display: inline-block;
+position: relative;
+border-radius: 3px;
+margin: 4px;
+overflow: hidden;
+text-align: start;
+background-color: #fff;
+box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);
+}
+
+  </style>
+  <template repeat="{{items as item}}">
+
+    
+     <material-card class="fancyCard chip" autoraise=true>
+        <div vertical layout center center-justified>
+        <h2>{{item.album}}</h2>
+        <p>{{item.artist}}</p>
+        </div>
+        </material-card>
+        
+    
+          </template>
+               
+  
+        </template>
+<script>
+      Polymer('org-units', {
+
+   
+
+      items: [
+        { artist: 'TECH TEAM', album: 'Tech Leads', color: '#f4db33' },
+        { artist: 'TESTING TEAM', album: 'TESTING LEADS', color: '#972ff8' },
+        { artist: 'Advisors Team ', album: 'Advisors', color: '#7dd6fe' },
+        { artist: 'HR Executive', album: 'HR ', color: '#dc3c84' },
+        { artist: 'TRavel Team', album: 'Travel Desk', color: '#f4db33' }
+        
+      ],
+
+  
+
+      
+    });
+  
+  
+</script>
+
+</polymer-element>

@@ -82,25 +82,38 @@ scopes="https://www.googleapis.com/auth/admin.directory.device.mobile https://ww
      </div>
      </section>
      <section data-category="groups">
-     <div >
        
-       <h1> I am In groups</h1>
-     </div>
-     </section>
+     <div center horizontal layout>
+      <div flex>Wi-Fi</div>
+      <paper-toggle-button checked></paper-toggle-button>
+    </div>
+    <div>
+    <groups-list></groups-list>
+    </div>
+    </section>
      <section data-category="org-unit">
      <div  >
-       
-       <h1> I am in Org-unit</h1>
-       
-     </div>
+    <org-units></org-units>
+ 
+      </div>
     </section>
      
      <section data-category="udevices">
-       <div   >
-     
-              <h1> I am in Devices</h1>
-            
-     </div>    
+       <paper-tabs   selected="{{page1}}" valueattr="data-category"id="devicetoggle1">
+  <paper-tab data-category="chromedev">Chrome Devices</paper-tab>
+  <paper-tab data-category="mobiledev">Mobile Devices</paper-tab> 
+  </paper-tabs>
+  <core-pages selected="{{page1}}" valueattr="data-category" id="devicetype1">
+  <div data-category="chromedev"><chrome-devices></chrome-devices></div>
+  <div data-category="mobiledev"><mobile-devices></mobile-devices></div>
+  
+  </core-pages>
+
+
+      
+
+      
+              
        
      </section>
       
@@ -130,7 +143,7 @@ scopes="https://www.googleapis.com/auth/admin.directory.device.mobile https://ww
    var drausers = document.getElementById('d-users');
 var dragroups= document.getElementById('d-groups');
 var draorgunit= document.getElementById('d-org-unit');
-var dradevices= document.getElementById('d-devices')
+var dradevices= document.getElementById('d-devices');
    var drawerPanel = document.getElementById('drawerPanel');
   navicon.addEventListener('click', function() {
     drawerPanel.togglePanel();
@@ -171,6 +184,14 @@ drawerPanel.togglePanel();
 tabs.addEventListener('core-select',function(){
   pages.selected = tabs.selected;
 });
+
+ var itabs = document.querySelector('#devicetoggle1');
+ var ipages = document.querySelector('#devicetype1');
+// 
+itabs.addEventListener('core-select',function(){
+  ipages.selected = itabs.selected;
+});
+
 
   </script>
   
