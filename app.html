@@ -10,7 +10,12 @@
 <link rel="import" href="bower_components/paper-toast/paper-toast.html">
 <link rel="import" href="bower_components/paper-dialog/paper-dialog.html" >
 <link rel="import" href="bower_components/paper-button/paper-button.html">
-  <link rel="import" href="bower_components/paper-dialog/paper-action-dialog.html">
+<link rel="import" href="bower_components/paper-dialog/paper-action-dialog.html">
+<style>
+  .divdisplay{
+    display:none;
+  }
+</style>
   <body fullbleed layout vertical unresolved>
     
     <paper-toast id="deleteToast" text="Deleting the User..."></paper-toast>
@@ -93,11 +98,17 @@ scopes="https://www.googleapis.com/auth/admin.directory.device.mobile https://ww
      </section>
      <section data-category="groups">
        
-     <div center horizontal layout>
-      <div flex>Wi-Fi</div>
-      <paper-toggle-button checked></paper-toggle-button>
+     <div center horizontal layout >
+      <div flex align="right"><h3>Data-toggle</h3>
+      <paper-toggle-button checked id="dtoggle"></paper-toggle-button>
+      </div>
     </div>
-    <div>
+    <div id="nogroupsdata">
+      <div center horizontal layout>
+      <h1> There are No groups</h1>
+      </div>
+    </div>
+    <div id="yesgroupsdata">
     <groups-list></groups-list>
     </div>
     </section>
@@ -197,11 +208,17 @@ tabs.addEventListener('core-select',function(){
 
  var itabs = document.querySelector('#devicetoggle1');
  var ipages = document.querySelector('#devicetype1');
+ 
 // 
 itabs.addEventListener('core-select',function(){
   ipages.selected = itabs.selected;
 });
 
+var dtoggle = document.querySelector('#dtoggle');
+
+dtoggle.addEventListener('core-change', function(){
+  document.querySelector('#nogroupsdata').show();
+})
 
   </script>
   
