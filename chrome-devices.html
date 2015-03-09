@@ -19,7 +19,7 @@
         margin: 4px;
         overflow: hidden;
         text-align: start;
-        background-color: #fff;
+        background-color: #FFFFFF;
         box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);
       }
 
@@ -46,7 +46,7 @@
         border-radius: 3px;
         text-align: start;
         overflow: hidden;
-        background: #fff;
+        background: #FFFFFF;
         box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
       }
 
@@ -79,10 +79,12 @@
           <template repeat="{{items as item}}">
 
             <div class="chip" hero-id="{{item.artist}}-{{item.album}}" hero?="{{selectedAlbum === item }}">
-              <div class="chip-top" style="background:{{item.color}};" hero-id="{{item.artist}}-{{item.album}}-art" hero?="{{selectedAlbum === item}}"></div>
+              <div class="chip-top" style="background:{{item.color}};" hero-id="{{item.artist}}-{{item.album}}-art" hero?="{{selectedAlbum === item}}">
+              <core-icon icon="hardware:{{item.deviceName}}" style="color:white;height:195px;width:195px"></core-icon> 
+              </div>
               <div class="chip-bottom">
                 <div class="chip-album-title">{{item.album}}</div>
-                <div class="chip-artist">{{item.artist}}</div>
+                <div class="chip-artist" style="color:grey">{{item.deviceName}}</div>
               </div>
             </div>
 
@@ -94,15 +96,31 @@
       <section id="details">
 
         <div class="card" layout horizontal hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}" hero on-tap="{{transition}}">
-          <div class="card-left" style="background:{{selectedAlbum.color}};" hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}-art" hero></div>
+          <div class="card-left" style="background:{{selectedAlbum.color}};" hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}-art" hero>
+          	<core-icon icon="hardware:{{selectedAlbum.deviceName}}" style="color:white;height:395px;width:395px"></core-icon> 
+          </div>
           <div class="card-right" flex>
             <div layout horizontal center>
               <div>
-                <div class="card-icon" style="background:{{selectedAlbum.color}};"></div>
+                <div class="card-icon" style="background:{{selectedAlbum.color}};">
+                <core-icon icon="hardware:{{selectedAlbum.deviceName}}" style="color:white;height:58px;width:58px"></core-icon> 
+                </div>
               </div>
               <div flex>
                 <div class="card-album-title">{{selectedAlbum.album}}</div>
-                <div class="card-album-artist">{{selectedAlbum.artist}}</div>
+                <div class="card-album-artist" style="color:grey">{{selectedAlbum.artist}}</div>
+                 <div class="card-album-artist" style="color:grey">Device Name: {{selectedAlbum.deviceName}}</div>
+                 <div class="card-album-artist" style="color:grey">OS Version: {{selectedAlbum.osVersion}}</div>
+                 <div class="card-album-artist" style="color:grey">Platform Version: {{selectedAlbum.platformVersion}}</div>
+                 <div class="card-album-artist" style="color:grey">Email Id: {{selectedAlbum.email}}</div>
+                 <div class="card-album-artist" style="color:grey">Hardware Id: {{selectedAlbum.hardwareId}}</div>
+                 <div class="card-album-artist" style="color:grey">Firmware Version: {{selectedAlbum.firmwareVersion}}</div>
+                 <div class="card-album-artist" style="color:grey">Boot Mode: {{selectedAlbum.bootMode}}</div>
+                 <div class="card-album-artist" style="color:grey">Validation status: {{selectedAlbum.validated}}</div>
+                 <div class="card-album-artist" style="color:grey">Enrolled Date: {{selectedAlbum.lastEnrollmentTime}}</div>
+                 <div class="card-album-artist" style="color:grey">Serial #: {{selectedAlbum.serialNumber}}</div>
+                 <div class="card-album-artist" style="color:grey">Mac Address: {{selectedAlbum.macAddress}}</div>
+                 
               </div>
             </div>
           </div>
@@ -120,14 +138,18 @@
       page: 0,
 
       items: [
-        { artist: 'Tycho', album: 'Fragments', color: '#f4db33' },
-        { artist: 'Tycho', album: 'Past Prologue', color: '#972ff8' },
-        { artist: 'Tycho', album: 'Spectre', color: '#7dd6fe' },
-        { artist: 'Tycho', album: 'Awake', color: '#dc3c84' },
-        { artist: 'Tycho', album: 'Fragments', color: '#f4db33' },
-        { artist: 'Tycho', album: 'Past Prologue', color: '#972ff8' },
-        { artist: 'Tycho', album: 'Spectre', color: '#7dd6fe' },
-        { artist: 'Tycho', album: 'Awake', color: '#dc3c84' }
+        { artist: 'Tycho', album: 'Fragments', color: '#f4db33' ,deviceName: 'desktop-mac',"osVersion": "Browser Version 18.0","platformVersion": "Platform Version 1415.2.0","firmwareVersion": "Firmware Version 1.2.3.4","bootMode": "validated","lastEnrollmentTime": "2012-04-05T17:30:04.325Z","serialNumber": "device serialNumber","macAddress": "macAddress value", "email": "liz@example.com", "hardwareId": "1234567890"},
+        { artist: 'Tycho', album: 'Past Prologue', color: '#972ff8' ,deviceName:'desktop-windows',"osVersion": "Browser Version 18.0","platformVersion": "Platform Version 1415.2.0","firmwareVersion": "Firmware Version 1.2.3.4","bootMode": "validated","lastEnrollmentTime": "2012-04-05T17:30:04.325Z","serialNumber": "device serialNumber","macAddress": "macAddress value", "email": "liz@example.com", "hardwareId": "1234567890"},
+        { artist: 'Tycho', album: 'Spectre', color: '#7dd6fe'  ,deviceName:'laptop',"osVersion": "Browser Version 18.0","platformVersion": "Platform Version 1415.2.0","firmwareVersion": "Firmware Version 1.2.3.4","bootMode": "validated","lastEnrollmentTime": "2012-04-05T17:30:04.325Z","serialNumber": "device serialNumber","macAddress": "macAddress value", "email": "liz@example.com", "hardwareId": "1234567890"},
+        { artist: 'Tycho', album: 'Awake', color: '#dc3c84' ,deviceName:'tv' ,deviceName:'laptop',"osVersion": "Browser Version 18.0","platformVersion": "Platform Version 1415.2.0","firmwareVersion": "Firmware Version 1.2.3.4","bootMode": "validated","lastEnrollmentTime": "2012-04-05T17:30:04.325Z","serialNumber": "device serialNumber","macAddress": "macAddress value", "email": "liz@example.com", "hardwareId": "1234567890"},
+        { artist: 'Tycho', album: 'Fragments', color: '#f4db33'  ,deviceName:'desktop-mac',deviceName:'laptop',"osVersion": "Browser Version 18.0","platformVersion": "Platform Version 1415.2.0","firmwareVersion": "Firmware Version 1.2.3.4","bootMode": "validated","lastEnrollmentTime": "2012-04-05T17:30:04.325Z","serialNumber": "device serialNumber","macAddress": "macAddress value", "email": "liz@example.com", "hardwareId": "1234567890"},
+        { artist: 'Tycho', album: 'Past Prologue', color: '#972ff8'  ,deviceName:'laptop-chromebook',deviceName:'laptop',"osVersion": "Browser Version 18.0","platformVersion": "Platform Version 1415.2.0","firmwareVersion": "Firmware Version 1.2.3.4","bootMode": "validated","lastEnrollmentTime": "2012-04-05T17:30:04.325Z","serialNumber": "device serialNumber","macAddress": "macAddress value", "email": "liz@example.com", "hardwareId": "1234567890"},
+        { artist: 'Tycho', album: 'Spectre', color: '#7dd6fe' ,deviceName:'desktop-windows',deviceName:'laptop',"osVersion": "Browser Version 18.0","platformVersion": "Platform Version 1415.2.0","firmwareVersion": "Firmware Version 1.2.3.4","bootMode": "validated","lastEnrollmentTime": "2012-04-05T17:30:04.325Z","serialNumber": "device serialNumber","macAddress": "macAddress value", "email": "liz@example.com", "hardwareId": "1234567890"},
+        { artist: 'Tycho', album: 'Awake', color: '#dc3c84' ,deviceName:'tablet-mac' ,deviceName:'laptop',"osVersion": "Browser Version 18.0","platformVersion": "Platform Version 1415.2.0","firmwareVersion": "Firmware Version 1.2.3.4","bootMode": "validated","lastEnrollmentTime": "2012-04-05T17:30:04.325Z","serialNumber": "device serialNumber","macAddress": "macAddress value", "email": "liz@example.com", "hardwareId": "1234567890"},
+        { artist: 'Tycho', album: 'Awake', color: '#972ff8' ,deviceName:'laptop-mac' ,deviceName:'laptop',"osVersion": "Browser Version 18.0","platformVersion": "Platform Version 1415.2.0","firmwareVersion": "Firmware Version 1.2.3.4","bootMode": "validated","lastEnrollmentTime": "2012-04-05T17:30:04.325Z","serialNumber": "device serialNumber","macAddress": "macAddress value", "email": "liz@example.com", "hardwareId": "1234567890"},
+        { artist: 'Tycho', album: 'Awake', color: '#dc3c84' ,deviceName:'laptop',deviceName:'laptop',"osVersion": "Browser Version 18.0","platformVersion": "Platform Version 1415.2.0","firmwareVersion": "Firmware Version 1.2.3.4","bootMode": "validated","lastEnrollmentTime": "2012-04-05T17:30:04.325Z","serialNumber": "device serialNumber","macAddress": "macAddress value", "email": "liz@example.com", "hardwareId": "1234567890" }
+        
+        
       ],
 
       selectedAlbum: null,
@@ -224,10 +246,12 @@
           <template repeat="{{items as item}}">
 
             <div class="chip" hero-id="{{item.artist}}-{{item.album}}" hero?="{{selectedAlbum === item }}">
-              <div class="chip-top" style="background:{{item.color}};" hero-id="{{item.artist}}-{{item.album}}-art" hero?="{{selectedAlbum === item}}"></div>
+              <div class="chip-top" style="background:{{item.color}};" hero-id="{{item.artist}}-{{item.album}}-art" hero?="{{selectedAlbum === item}}">
+              <core-icon icon="hardware:{{item.deviceName}}" style="color:white;height:195px;width:195px"></core-icon> 
+              </div>
               <div class="chip-bottom">
                 <div class="chip-album-title">{{item.album}}</div>
-                <div class="chip-artist">{{item.artist}}</div>
+                <div class="chip-artist" style="color:grey">{{item.deviceName}}</div>
               </div>
             </div>
 
@@ -239,15 +263,28 @@
       <section id="details">
 
         <div class="card" layout horizontal hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}" hero on-tap="{{transition}}">
-          <div class="card-left" style="background:{{selectedAlbum.color}};" hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}-art" hero></div>
+          <div class="card-left" style="background:{{selectedAlbum.color}};" hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}-art" hero>
+          	<core-icon icon="hardware:{{selectedAlbum.deviceName}}" style="color:white;height:395px;width:395px"></core-icon> 
+          </div>
           <div class="card-right" flex>
             <div layout horizontal center>
               <div>
-                <div class="card-icon" style="background:{{selectedAlbum.color}};"></div>
+                <div class="card-icon" style="background:{{selectedAlbum.color}};">
+                 <core-icon icon="hardware:{{selectedAlbum.deviceName}}" style="color:white;height:58px;width:58px"></core-icon>
+                 </div>
               </div>
               <div flex>
                 <div class="card-album-title">{{selectedAlbum.album}}</div>
-                <div class="card-album-artist">{{selectedAlbum.artist}}</div>
+                <div class="card-album-artist" style="color:grey"> Device Name : {{selectedAlbum.deviceName}}</div>
+                <div class="card-album-artist" style="color:grey">Device Id : {{selectedAlbum.deviceId}}</div>
+                <div class="card-album-artist" style="color:grey">Model : {{selectedAlbum.model}}</div>
+                <div class="card-album-artist" style="color:grey">Operation System : {{selectedAlbum.os}}</div>
+                <div class="card-album-artist" style="color:grey">Type : {{selectedAlbum.type}}</div>
+                <div class="card-album-artist" style="color:grey">Approval Status : {{selectedAlbum.status}}</div>
+                <div class="card-album-artist" style="color:grey">Hardware Id : {{selectedAlbum.hardwareId}}</div>
+                <div class="card-album-artist" style="color:grey">First Sync : {{selectedAlbum.firstSync}}</div>
+                <div class="card-album-artist" style="color:grey">Last Sync : {{selectedAlbum.lastSync}}</div>
+                <div class="card-album-artist" style="color:grey">User Agent : {{selectedAlbum.userAgent}}</div>
               </div>
             </div>
           </div>
@@ -265,14 +302,17 @@
       page: 0,
 
       items: [
-        { artist: 'Tycho2', album: 'Fragments', color: '#f4db33' },
-        { artist: 'Tycho2', album: 'Past Prologue', color: '#972ff8' },
-        { artist: 'Tycho3', album: 'Spectre3', color: '#7dd6fe' },
-        { artist: 'Tycho', album: 'Awake', color: '#dc3c84' },
-        { artist: 'Tycho', album: 'Fragments', color: '#f4db33' },
-        { artist: 'Tycho', album: 'Past Prologue', color: '#972ff8' },
-        { artist: 'Tycho', album: 'Spectre', color: '#7dd6fe' },
-        { artist: 'Tycho', album: 'Awake', color: '#dc3c84' }
+         { artist: 'Tycho', album: 'Fragments', color: '#f4db33' ,deviceName: 'phone-android',"deviceId": "deviceId value","model": "Nexus 4","os": "Android 4.2.2","type": "ANDROID","status": "APPROVED", "hardwareId": "1234567890","firstSync": "2013-05-15T17:30:04.325Z", "lastSync": "2013-06-05T17:30:04.325Z","userAgent": "Google Apps Device Policy 4.14"},
+        { artist: 'Tycho', album: 'Past Prologue', color: '#972ff8' ,deviceName:'smartphone',"deviceId": "deviceId value","model": "Nexus 4","os": "Android 4.2.2","type": "ANDROID","status": "APPROVED", "hardwareId": "1234567890","firstSync": "2013-05-15T17:30:04.325Z", "lastSync": "2013-06-05T17:30:04.325Z","userAgent": "Google Apps Device Policy 4.14"},
+        { artist: 'Tycho', album: 'Spectre', color: '#7dd6fe'  ,deviceName:'phone-android',"deviceId": "deviceId value","model": "Nexus 4","os": "Android 4.2.2","type": "ANDROID","status": "APPROVED", "hardwareId": "1234567890","firstSync": "2013-05-15T17:30:04.325Z", "lastSync": "2013-06-05T17:30:04.325Z","userAgent": "Google Apps Device Policy 4.14"},
+        { artist: 'Tycho', album: 'Awake', color: '#dc3c84' ,deviceName:'phone-iphone',"deviceId": "deviceId value","model": "Nexus 4","os": "Android 4.2.2","type": "ANDROID","status": "APPROVED", "hardwareId": "1234567890","firstSync": "2013-05-15T17:30:04.325Z", "lastSync": "2013-06-05T17:30:04.325Z","userAgent": "Google Apps Device Policy 4.14" },
+        { artist: 'Tycho', album: 'Fragments', color: '#f4db33'  ,deviceName:'watch',"deviceId": "deviceId value","model": "Nexus 4","os": "Android 4.2.2","type": "ANDROID","status": "APPROVED", "hardwareId": "1234567890","firstSync": "2013-05-15T17:30:04.325Z", "lastSync": "2013-06-05T17:30:04.325Z","userAgent": "Google Apps Device Policy 4.14"},
+        { artist: 'Tycho', album: 'Past Prologue', color: '#972ff8'  ,deviceName:'tablet',"deviceId": "deviceId value","model": "Nexus 4","os": "Android 4.2.2","type": "ANDROID","status": "APPROVED", "hardwareId": "1234567890","firstSync": "2013-05-15T17:30:04.325Z", "lastSync": "2013-06-05T17:30:04.325Z","userAgent": "Google Apps Device Policy 4.14"},
+        { artist: 'Tycho', album: 'Spectre', color: '#7dd6fe' ,deviceName:'smartphone',"deviceId": "deviceId value","model": "Nexus 4","os": "Android 4.2.2","type": "ANDROID","status": "APPROVED", "hardwareId": "1234567890","firstSync": "2013-05-15T17:30:04.325Z", "lastSync": "2013-06-05T17:30:04.325Z","userAgent": "Google Apps Device Policy 4.14"},
+        { artist: 'Tycho', album: 'Awake', color: '#dc3c84' ,deviceName:'tablet-android' ,"deviceId": "deviceId value","model": "Nexus 4","os": "Android 4.2.2","type": "ANDROID","status": "APPROVED", "hardwareId": "1234567890","firstSync": "2013-05-15T17:30:04.325Z", "lastSync": "2013-06-05T17:30:04.325Z","userAgent": "Google Apps Device Policy 4.14"},
+        { artist: 'Tycho', album: 'Awake', color: '#dc3c84' ,deviceName:'laptop-mac' ,"deviceId": "deviceId value","model": "Nexus 4","os": "Android 4.2.2","type": "ANDROID","status": "APPROVED", "hardwareId": "1234567890","firstSync": "2013-05-15T17:30:04.325Z", "lastSync": "2013-06-05T17:30:04.325Z","userAgent": "Google Apps Device Policy 4.14"},
+        { artist: 'Tycho', album: 'Awake', color: '#dc3c84' ,deviceName:'phone-android',"deviceId": "deviceId value","model": "Nexus 4","os": "Android 4.2.2","type": "ANDROID","status": "APPROVED", "hardwareId": "1234567890","firstSync": "2013-05-15T17:30:04.325Z", "lastSync": "2013-06-05T17:30:04.325Z","userAgent": "Google Apps Device Policy 4.14" }
+        
       ],
 
       selectedAlbum: null,
