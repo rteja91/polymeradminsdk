@@ -38,6 +38,7 @@
     </core-toolbar>
     
     <core-menu  selected="{{page}}" valueattr="data-category" id="main-menu1">
+      
       <paper-item data-category="users" class="menuItem" id="d-users" layout center>
        <core-icon icon="social:person"></core-icon>
      	 &nbsp;Users
@@ -60,22 +61,24 @@
   <core-header-panel main>
     <core-toolbar id="mainheader">
       <paper-icon-button id="navicon" icon="menu"></paper-icon-button>
-      <span>TwinkleTricks APP</span>
+      <span id="appheading">
+        
+      </span>
       <span flex three> </span>
 
-    
-   <paper-menu-button>
+   <paper-icon-button icon="home"  title="home" id="homeicon"> </paper-icon-button>
+   <paper-menu-button>    
     <paper-icon-button icon="more-vert" noink></paper-icon-button>
     <paper-dropdown class="dropdown" halign="right" valign="top" style="color:black;border: solid 1px gray;">
-        <core-menu class="menu">
+        <core-menu selected="{{rtpages}}" valueattr="data-category" class="menu" id="rt-menu">
         
-           <paper-item class="menuItem">
+           <paper-item class="menuItem" data-category="share" id="shareitem">
            <core-icon icon="social:share"></core-icon>
            &nbsp;Share</paper-item>                     
-            <paper-item class="menuItem">
+            <paper-item class="menuItem" data-category="settings">
             <core-icon icon="settings"></core-icon>
             &nbsp;Settings</paper-item>            
-            <paper-item class="menuItem">
+            <paper-item class="menuItem" data-category="help">
             <core-icon icon="help"></core-icon>
             &nbsp;Help</paper-item>
             <paper-item><google-signin class="google-button"
@@ -90,27 +93,41 @@ scopes="https://www.googleapis.com/auth/admin.directory.device.mobile https://ww
     </core-toolbar>
     <div class="content" style="color: black;margin-top:64px" fit layout vertical>
       
+     
+      
       <core-pages selected="{{page}}" valueattr="data-category" id="main-pages1">
+      
+      <section data-category="home">
+        <div> Welcome to the Admin Management Software.</div>
+        
+        
+      </section>
       <section data-category="users">
       <div >
       <x-listitem> </x-listitem>
      </div>
      </section>
      <section data-category="groups">
-       
-     <div center horizontal layout >
+       <div center horizontal layout >
       <div flex align="right"><h3>Data-toggle</h3>
       <paper-toggle-button checked id="dtoggle"></paper-toggle-button>
       </div>
     </div>
-    <div id="nogroupsdata">
+      <core-pages selected="1" valueattr="data-cat" id="gpsection"> 
+     
+   <section data-cat="no">
+    <div id="nogroupsdata">      
       <div center horizontal layout>
       <h1> There are No groups</h1>
       </div>
     </div>
+    </section>
+    <section data-cat="yes">
     <div id="yesgroupsdata">
     <groups-list></groups-list>
     </div>
+    </section>
+    </core-pages>
     </section>
      <section data-category="org-unit">
      <div  >
@@ -121,25 +138,83 @@ scopes="https://www.googleapis.com/auth/admin.directory.device.mobile https://ww
      
      <section data-category="udevices">
        <paper-tabs   selected="{{page1}}" valueattr="data-category"id="devicetoggle1">
-  <paper-tab data-category="chromedev">Chrome Devices</paper-tab>
+  <paper-tab data-category="chromedev" >Chrome Devices</paper-tab>
   <paper-tab data-category="mobiledev">Mobile Devices</paper-tab> 
   </paper-tabs>
   <core-pages selected="{{page1}}" valueattr="data-category" id="devicetype1">
   <div data-category="chromedev"><chrome-devices></chrome-devices></div>
   <div data-category="mobiledev"><mobile-devices></mobile-devices></div>
   
-  </core-pages>
 
-
+     
+     
+     </core-pages>
+     
+      </section>
+    
+    
+     </core-pages>
+    
+    <core-pages selected="{{rtpages}}" valueattr="data-category" id="rtcpages">
+     
+    <section data-category="share">
+     <paper-action-dialog id="shareDialog" style="position: fixed;width:80%;top:10%;border-width:thin;border-style:solid;border-color:blue">
+      <p>Share Via Social Networks</p>
+      <span style="color:#f90">
+      <core-icon icon="social:post-blogger"></core-icon>
+      <core-icon icon="social:post-facebook"></core-icon>
+      <core-icon icon="social:post-github"></core-icon>
+      <core-icon icon="social:post-gplus"></core-icon>
+      <core-icon icon="social:post-instagram"></core-icon>
+      <core-icon icon="social:post-linkedin"></core-icon>
+      <core-icon icon="social:post-pinterest"></core-icon>
+      <core-icon icon="social:post-tumblr"></core-icon>
+      <core-icon icon="social:post-twitter"></core-icon>
+      <core-icon icon="social:post-youtube"></core-icon>
+      </span>
+      <paper-button affirmative autofocus>Cancel</paper-button>
+      <!-- <paper-button affirmative  style="border-color:#D32F2F;border-width:thin;border-style:solid">Delete</paper-button> -->
       
-
-      
-              
+    </paper-action-dialog>     
+ 
+    </section>
+     <section data-category="settings">
        
+       <h1>Settings</h1>
      </section>
       
-      </core-pages>
+      <section data-category="help">
+        
+        <h1> help</h1>
+        <polymer-ui-accordion selected="0">
+      <polymer-ui-collapsible>
+        <div class="polymer-ui-collapsible-header">Question 1</div>
+        <div class="content">
+          Forma temperiemque cornua sidera dissociata cornua recessit innabilis ligavit: solidumque coeptis nullus caelum sponte phoebe di regat mentisque tanta austro capacius amphitrite sui quin postquam semina fossae liquidum umor galeae coeptis caligine liberioris quin liquidum matutinis invasit posset: flexi glomeravit radiis certis invasit oppida postquam onerosior inclusum dominari opifex terris pace finxit quam aquae nunc sine altae auroram quam habentem homo totidemque scythiam in pondus ensis tegit caecoque poena lapidosos humanas coeperunt poena aetas totidem nec natura aethera locavit caelumque distinxit animalibus phoebe cingebant moderantum porrexerat terrae possedit sua sole diu summaque obliquis melioris orbem
+        </div>
+      </polymer-ui-collapsible>
+      <polymer-ui-collapsible>
+        <div class="polymer-ui-collapsible-header">Question 2</div>
+        <div class="content">
+          Coercuit iunctarum vix sic aberant spisso imagine litem cetera nubes ambitae tanta usu circumfuso fulminibus umentia rectumque iuga pluviaque meis semina regat ne campoque meis coeperunt nix cura iunctarum ligavit: secant ventos seductaque permisit sic iunctarum locoque his coeptis tum terras animalia recepta aethera cornua invasit tollere videre tonitrua humanas otia tuba alta dissociata sanctius adsiduis inclusum caesa ita onus sine pluviaque litem manebat fixo extendi ubi inposuit cum sublime membra undas orba forma deducite aethera turba coercuit retinebat obliquis bracchia nisi mentisque origine peregrinum manebat
+        </div>
+      </polymer-ui-collapsible>
+      <polymer-ui-collapsible>
+        <div class="polymer-ui-collapsible-header">Question 3</div>
+        <div class="content">
+          Forma temperiemque cornua sidera dissociata cornua recessit innabilis ligavit: solidumque coeptis nullus caelum sponte phoebe di regat mentisque tanta austro capacius amphitrite sui quin postquam semina fossae liquidum umor galeae coeptis caligine liberioris quin liquidum matutinis invasit posset: flexi glomeravit radiis certis invasit oppida postquam onerosior inclusum dominari opifex terris pace finxit quam aquae nunc sine altae auroram quam habentem homo totidemque scythiam in pondus ensis tegit caecoque poena lapidosos humanas coeperunt poena aetas totidem nec natura aethera locavit caelumque
+        </div>
+      </polymer-ui-collapsible>
+    </polymer-ui-accordion>
+        
+      </section>
+              
+       
+     
+     
+     </core-pages>
       
+    
           
     </div>
   </core-header-panel>
@@ -175,7 +250,7 @@ var dradevices= document.getElementById('d-devices');
   });
   
   drausers.addEventListener('click',function(){
-
+ //document.querySelector('appheading').description("Users");
 drawerPanel.togglePanel();
 });
 dragroups.addEventListener('click',function(){
@@ -199,26 +274,94 @@ drawerPanel.togglePanel();
 // document.querySelector('body').classList.add('active');
    // window.location.hash=pages.users;
 
- var tabs = document.querySelector('#main-menu1');
- var pages = document.querySelector('#main-pages1');
+  var tabs = document.querySelector('#main-menu1');
+  var pages = document.querySelector('#main-pages1');
+  var rtabs = document.querySelector('#rt-menu');
+  var rpages = document.querySelector('#rtcpages');
+  var itabs = document.querySelector('#devicetoggle1');
+  var ipages = document.querySelector('#devicetype1');
+  var share = document.querySelector('#shareitem');
+  var homepage = document.querySelector('#homeicon');
+  var gdatatoggle = document.querySelector('#dtoggle');
+  var gpsection = document.querySelector('#gpsection');
+  pages.selected = "home";
+  ipages.selected = "chromedev";
+  itabs.selected = "chromedev";
+  document.getElementById('appheading').innerHTML ="Home"; 
+  
+  rtabs.addEventListener('core-select', function(){
+    rpages.selected = rtabs.selected;
+    pages.selected ="";
+    ipages.selected ="";
+      var hsel1;
+  if(rtabs.selected == "share"){
+    hsel1 = "Share";
+    
+  }else if(rtabs.selected == "settings"){
+    hsel1="Settings";
+  }else if(rtabs.selected == "help"){
+    hsel1 = "Help";
+    
+  }
+  
+  document.getElementById('appheading').innerHTML =hsel1;
+    
+  });
+ 
+ 
+ share.addEventListener('click', function(){
+   document.querySelector('#shareDialog').toggle();
+   
+ });
+
+ 
+ gdatatoggle.addEventListener('click', function(){
+   if(gdatatoggle.checked){
+     gpsection.selected = "yes";
+   }else{
+     gpsection.selected="no";
+   }
+   
+ });
+ 
+ homepage.addEventListener('click', function(){
+  pages.selected = "home"; 
+   document.getElementById('appheading').innerHTML ="Home";
+ });
 // 
+
 tabs.addEventListener('core-select',function(){
   pages.selected = tabs.selected;
+  rpages.selected = "";
+  ipages.selected = "chromedev";
+  itabs.selected = "chromedev";
+  var hsel;
+  if(tabs.selected == "home"){
+    hsel = "Home";
+  }else if(tabs.selected == "groups"){
+    hsel="Groups";
+  }else if(tabs.selected == "users"){
+    hsel = "Users";
+    
+  }else if(tabs.selected == "org-unit"){
+    hsel = "Organizational Units";
+    
+  }else if(tabs.selected == "udevices"){
+    hsel = "Devices";
+  }
+  document.getElementById('appheading').innerHTML =hsel;
 });
 
- var itabs = document.querySelector('#devicetoggle1');
- var ipages = document.querySelector('#devicetype1');
- 
-// 
+
 itabs.addEventListener('core-select',function(){
   ipages.selected = itabs.selected;
+  //rpages.selected = "";
+  //pages.selected = "";
 });
 
-var dtoggle = document.querySelector('#dtoggle');
 
-dtoggle.addEventListener('core-change', function(){
-  document.querySelector('#nogroupsdata').show();
-})
+
+
 
   </script>
   
